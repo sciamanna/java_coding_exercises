@@ -1,30 +1,39 @@
 package com.techreturners.exercise001;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+//import java.util.ArrayList;
 import java.util.List;
 
 public class Exercise001 {
     public String capitalizeWord(String word) {
-        // Add your code here
-        return "";
+        return Character.toUpperCase(word.charAt(0)) + word.substring(1);
     }
 
     public String generateInitials(String firstName, String lastName) {
-        // Add your code here
-        return "";
+        return Character.toUpperCase(firstName.charAt(0)) + "." + Character.toUpperCase(lastName.charAt(0));
     }
 
     public double addVat(double originalPrice, double vatRate) {
-        // Add your code here
-        return 0.0;
+        BigDecimal bd = new BigDecimal(Double.toString((originalPrice += originalPrice * vatRate / 100)));
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     public String reverse(String sentence) {
-        // Add your code here
-        return "";
+        return new StringBuilder(sentence).reverse().toString();
     }
 
     public int countLinuxUsers(List<User> users) {
-        // Add your code here
-        return 0;
+        User u;
+        int count = 0;
+        for (int i=0; i<users.size(); i++) {
+            u = users.get(i);
+            //System.out.println("user: " + u.getUsername() + " os: " +u.getOperatingSystem() + " type: " + u.getType());
+            if (u.getType().equals("Linux")) {
+                count++;
+            }
+        }
+        return count;
     }
 }
