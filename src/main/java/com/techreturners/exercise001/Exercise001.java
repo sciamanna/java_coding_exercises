@@ -29,8 +29,6 @@ public class Exercise001 {
         int count = 0;
         for (int i = 0; i < users.size(); i++) {
             u = users.get(i);
-            // System.out.println("user: " + u.getUsername() + " os: "
-            // +u.getOperatingSystem() + " type: " + u.getType());
             if (u.getType().equals("Linux")) {
                 count++;
             }
